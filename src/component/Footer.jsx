@@ -1,12 +1,12 @@
 import { FaCircleInfo} from "react-icons/fa6"
 
-export default function Footer ({toggleModal}) {
+export default function Footer ({toggleModal, jsonData}) {
     return (
         <footer>
             <div className="bgGradient" />
             <div>
-               <h2>The brutal martial landscape</h2>
                <h1>APOD Project</h1>
+               <h2>{jsonData?.title}</h2>
             </div>
             <button onClick={toggleModal}>
                 <FaCircleInfo />

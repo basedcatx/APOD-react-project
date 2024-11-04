@@ -27,6 +27,7 @@
 .imgContainer {
   display: flex;
   flex-direction: column;
+  max-height: 100%;
 }
 
 .bgImage {
@@ -92,6 +93,7 @@ footer button:hover {
   display: flex;
   flex-direction: column;
   z-index: 10;
+  padding: 1rem;
 }
 
 .bgOverlay {
@@ -124,8 +126,51 @@ footer button:hover {
   background: transparent;
   color: white;
   border: none;
+  font-size: larger;
   outline: none;
   margin-right: auto;
+  transition-duration: 200ms;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  opacity: 0.2;
+  font-size: 2rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sidebarContents button:hover {
+  opacity: 0.7;
+}
+
+.sidebarContents h2 {
+  font-weight: 200;
+  font-size: 1.4rem;
+}
+.descriptionTitle {
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 @media (min-width: 640px) {
@@ -133,10 +178,12 @@ footer button:hover {
     position: relative;
     inset: unset;
     min-width: 30%;
+    max-height: 100%;
     box-shadow: 0 0 10px 1px #030615;
   }
 
   .sidebarContents {
     margin: unset;
+    width: 100%;
   }
 }
