@@ -12,7 +12,7 @@ function App() {
   const [data, setData] = useState()
   const today = (new Date()).getDay().toString()
   const localKey = `NASA-${today}`
-  alert(NASA_KEY)
+  
   useEffect(() => {
 
     async function fetchApiData  () {
