@@ -78,6 +78,8 @@ footer button {
   font-size: 1.3rem;
   transition-duration: 200ms;
   cursor: pointer;
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease;
 }
 
 footer button:hover {
@@ -149,6 +151,8 @@ footer button:hover {
   transition-duration: 200ms;
   padding: 1rem 0;
   cursor: pointer;
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease;
 }
 
 
