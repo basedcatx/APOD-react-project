@@ -47,7 +47,6 @@ footer {
   width: 100%;
   display: flex;
   align-items: center;
-  font-color: white;
   gap: 1rem;
   justify-content: space-between;
   padding: 1rem;
@@ -125,6 +124,10 @@ footer button:hover {
   background-color: #030615;
 }
 .sidebarContents h1 {
+  color: white;
+}
+
+.sidebarContents h2 {
   color: white;
 }
 
