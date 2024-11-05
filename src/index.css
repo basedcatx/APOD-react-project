@@ -55,11 +55,13 @@ footer {
 
 footer h2 {
   font-size: 1.4rem;
+  color: white;
 }
 
 footer h1 {
   font-size: 0.9rem;
   font-weight: 200
+  color: white;
 }
 
 footer div { 
