@@ -39,4 +39,4 @@ This project is a **React** application that showcases NASA's **Astronomy Pictur
     ```bash
     npm start
     ```
-   The app will run locally at `http://localhost:3000` or visit our website [NASA PROJECT DEMO](https://).
+   The app will run locally at `http://localhost:3000` or visit our website [NASA PROJECT DEMO](https://apods.vercel.app).
