@@ -124,6 +124,13 @@ footer button:hover {
   margin: auto;
   background-color: #030615;
 }
+.sidebarContents h1 {
+  color: white;
+}
+
+.sidebarContents p {
+  color: white;
+}
 
 .sidebarContents div {
   flex: 1;
