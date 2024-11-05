@@ -5,7 +5,7 @@ export default function Footer ({toggleModal, jsonData}) {
         <footer>
             <div className="bgGradient" />
             <div>
-               <h1>APOD Project</h1>
+               <h1>{jsonData?.copyright.replace("\n", "")}</h1>
                <h2>{jsonData?.title}</h2>
             </div>
             <button onClick={toggleModal}>

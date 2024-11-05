@@ -8,11 +8,11 @@ function App() {
   const [showModal, setModal] = useState(false)
   const toggleModal = () => setModal(!showModal)
   const toggleModalOff = () => setModal(false)
-  const NASA_KEY = process.env.NASA_API_KEY
+  let NASA_KEY = process.env.NASA_API_KEY || import.meta.env.NASA_API_KEY
   const [data, setData] = useState()
   const today = (new Date()).getDay().toString()
   const localKey = `NASA-${today}`
-
+  alert(NASA_KEY)
   useEffect(() => {
 
     async function fetchApiData  () {
