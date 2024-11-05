@@ -94,6 +94,8 @@ footer button:hover {
   flex-direction: column;
   z-index: 10;
   padding: 1rem;
+  transform: translateX(-100%); /* Start off-screen */
+  transition: transform 0.3s ease; /* Smooth transition */
 }
 
 .bgOverlay {
@@ -120,6 +122,9 @@ footer button:hover {
 
 .sidebarContents div {
   flex: 1;
+}
+.sidebar.open {
+  transform: translateX(0); /* Move to visible position */
 }
 
 .sidebarContents button {
