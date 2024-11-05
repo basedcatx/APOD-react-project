@@ -47,6 +47,7 @@ footer {
   width: 100%;
   display: flex;
   align-items: center;
+  font-color: white;
   gap: 1rem;
   justify-content: space-between;
   padding: 1rem;
@@ -94,6 +95,7 @@ footer button:hover {
   position: fixed;
   inset: 0;
   display: flex;
+  font-color: white;
   flex-direction: column;
   z-index: 10;
   padding: 1rem;
