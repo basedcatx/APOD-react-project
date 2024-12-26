@@ -12,10 +12,9 @@ function App() {
   const [data, setData] = useState()
   const today = (new Date()).getDay().toString()
   const localKey = `NASA-${today}`
-  
-  useEffect(() => {
 
-    async function fetchApiData  () {
+
+  async function fetchApiData  () {
 
       const url = 'https://api.nasa.gov/planetary/apod' + `?api_key=${NASA_KEY}`
         fetch(url).then(response => {
@@ -30,9 +29,15 @@ function App() {
           localStorage.setItem(localKey, JSON.stringify(data))
           console.log("new search")
         })
-        .catch(error => console.error(error))
-    }
-
+        .catch(error => {
+          console.error(error)
+          setTimeout(() => {
+            fetchApiData()
+          }, 2000)
+        })
+  }
+  
+  useEffect(() => {
     if (localStorage.getItem(localKey) != null) {
       console.log("already exists")
       setData(JSON.parse(localStorage.getItem(localKey)))
