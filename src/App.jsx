@@ -1,63 +1,51 @@
-import { useEffect, useState } from "react"
-import Footer from "./component/Footer"
-import Main from "./component/Main"
-import Sidebar from "./component/Sidebar"
-import { FaGear } from "react-icons/fa6"
+import { useEffect, useState } from "react";
+import Footer from "./component/Footer";
+import Main from "./component/Main";
+import Sidebar from "./component/Sidebar";
+import { FaGear } from "react-icons/fa6";
+import { getHashedKey, getNasaUrl } from "./utils";
 
 function App() {
-  const [showModal, setModal] = useState(false)
-  const toggleModal = () => setModal(!showModal)
-  const toggleModalOff = () => setModal(false)
-  let NASA_KEY = process.env.VITE_NASA_API_KEY || import.meta.env.NASA_API_KEY
-  const [data, setData] = useState()
-  const today = (new Date()).getDay().toString()
-  const localKey = `NASA-${today}`
+  const [showModal, setModal] = useState(false);
+  const toggleModal = () => setModal(!showModal);
+  const [data, setData] = useState();
+  // I want to rework on this app, everything about it, is wrong.
 
-
-  async function fetchApiData  () {
-
-      const url = 'https://api.nasa.gov/planetary/apod' + `?api_key=${NASA_KEY}`
-        fetch(url).then(response => {
-          if (!response.ok) {
-            throw new Error(`Error: ${response.status}`)
-          }
-          return response.json()
-        })
-        .then(data => {
-          setData(data)
-          localStorage.clear()
-          localStorage.setItem(localKey, JSON.stringify(data))
-          console.log("new search")
-        })
-        .catch(error => {
-          console.error(error)
-          setTimeout(() => {
-            fetchApiData()
-          }, 2000)
-        })
-  }
-  
-  useEffect(() => {
-    if (localStorage.getItem(localKey) != null) {
-      console.log("already exists")
-      setData(JSON.parse(localStorage.getItem(localKey)))
-    } else {
-      fetchApiData()
-    }
-
-  }, [])
+  useEffect(() =>
+    {(async () => {
+      try {
+        const response = await fetch(getNasaUrl());
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        const json = await response.json()
+        if (json) {
+          setData(json);
+          localStorage.clear();
+          localStorage.setItem(
+            await getHashedKey(),
+            JSON.stringify(json)
+          );
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    })()}, []
+  );
 
   return (
     <>
-      {data ? (<Main jsonData={data} toggleModalOff={toggleModalOff}/>) : (
+      {data ? (
+        <Main jsonData={data} toggleModalOff={toggleModal} />
+      ) : (
         <div className="loadingState">
           <FaGear />
         </div>
       )}
-      {showModal && (<Sidebar toggleModal={toggleModal} jsonData={data}/>)}
-      {data && (<Footer toggleModal={toggleModal} jsonData={data}/>)}
+      {showModal && <Sidebar toggleModal={toggleModal} jsonData={data} />}
+      {data && <Footer toggleModal={toggleModal} jsonData={data} />}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
