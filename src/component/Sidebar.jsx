@@ -1,4 +1,4 @@
-import { FaArrowRight } from "react-icons/fa6";
+import { ChevronRight } from "lucide-react";
 
 export default function Sidebar ({toggleModal, jsonData}) {
     return (
@@ -12,7 +12,7 @@ export default function Sidebar ({toggleModal, jsonData}) {
                     <p>{jsonData?.explanation}</p>
                 </div>
                 <button onClick={toggleModal}>
-                    <FaArrowRight />
+                    <ChevronRight />
                 </button>
             </div>
         </div>

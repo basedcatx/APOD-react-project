@@ -1,4 +1,4 @@
-import { FaCircleInfo} from "react-icons/fa6"
+import { CircleDotIcon } from "lucide-react";
 
 export default function Footer ({toggleModal, jsonData}) {
     return (
@@ -9,7 +9,7 @@ export default function Footer ({toggleModal, jsonData}) {
                <h2>{jsonData?.title}</h2>
             </div>
             <button onClick={toggleModal}>
-                <FaCircleInfo />
+                <CircleDotIcon />
             </button>
         </footer>
     )

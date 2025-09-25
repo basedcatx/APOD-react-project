@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Footer from "./component/Footer";
 import Main from "./component/Main";
 import Sidebar from "./component/Sidebar";
-import { FaGear } from "react-icons/fa6";
 import { getHashedKey, getNasaUrl } from "./utils";
+import {Cog} from "lucide-react"
 
 function App() {
   const [showModal, setModal] = useState(false);
@@ -39,7 +39,7 @@ function App() {
         <Main jsonData={data} toggleModalOff={toggleModal} />
       ) : (
         <div className="loadingState">
-          <FaGear />
+          <Cog />
         </div>
       )}
       {showModal && <Sidebar toggleModal={toggleModal} jsonData={data} />}
